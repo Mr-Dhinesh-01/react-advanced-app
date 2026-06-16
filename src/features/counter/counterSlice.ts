@@ -1,0 +1,14 @@
+// src/features/counter/counterSlice.ts — RTK slice
+import { createSlice } from '@reduxjs/toolkit';
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState: { value: 0 },
+  reducers: {
+    increment: (state) => { state.value += 1; }, // Immer-safe
+    reset: (state) => { state.value = 0; },
+  },
+});
+
+export const { increment, reset } = counterSlice.actions;
+export default counterSlice.reducer;

@@ -1,0 +1,61 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "userId": 1,
+      "title": "Set up React project",
+      "description": "Create Vite project and install dependencies",
+      "status": "done",
+      "priority": "high"
+    },
+    {
+      "id": "2",
+      "userId": 1,
+      "title": "Build Task List component",
+      "description": "Create a reusable list component with TypeScript props",
+      "status": "in-progress",
+      "priority": "high"
+    },
+    {
+      "id": "3",
+      "userId": 2,
+      "title": "Add form validation",
+      "description": "Validate required fields and show error messages",
+      "status": "todo",
+      "priority": "medium"
+    },
+    {
+      "id": "4",
+      "userId": 1,
+      "title": "Style with CSS modules",
+      "description": "Apply scoped styles using CSS module pattern",
+      "status": "todo",
+      "priority": "low"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Sarah Johnson",
+      "role": "Frontend Developer",
+      "city": "London",
+      "email": "sarah.johnson@company.com",
+      "password": "react123"
+    },
+    {
+      "id": "2",
+      "name": "James Carter",
+      "role": "Backend Developer",
+      "city": "Manchester",
+      "email": "james.carter@company.com",
+      "password": "node1234"
+    },
+    {
+      "name": "Dhinesh S",
+      "email": "dhinesh@supremetechnologies.in",
+      "password": "123456",
+      "id": "Nw4H4vGfFAw"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
