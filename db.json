@@ -56,6 +56,5 @@
       "password": "123456",
       "id": "Nw4H4vGfFAw"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
