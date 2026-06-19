@@ -7,17 +7,29 @@ import axios from 'axios';
 vi.mock('axios');
 
 // a small component that loads tasks from the API
-interface Task { id: number; title: string; }
+interface Task {
+  id: number;
+  title: string;
+}
 function TaskList() {
   const [tasks, setTasks] = useState<Task[] | null>(null);
   useEffect(() => {
     let cancelled = false;
-    axios.get<Task[]>('http://localhost:3000/tasks')
-      .then((res) => { if (!cancelled) setTasks(res.data); });
-    return () => { cancelled = true; };
+    axios.get<Task[]>('http://localhost:3000/tasks').then((res) => {
+      if (!cancelled) setTasks(res.data);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, []);
   if (tasks === null) return <p>Loading tasks…</p>;
-  return <ul>{tasks.map((t) => <li key={t.id}>{t.title}</li>)}</ul>;
+  return (
+    <ul>
+      {tasks.map((t) => (
+        <li key={t.id}>{t.title}</li>
+      ))}
+    </ul>
+  );
 }
 
 describe('TaskList', () => {

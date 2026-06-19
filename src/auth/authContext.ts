@@ -1,7 +1,11 @@
 // src/auth/authContext.ts — the context + a typed hook
 import { createContext, useContext } from 'react';
 
-export interface AuthUser { id: number; name: string; email: string; }
+export interface AuthUser {
+  id: number;
+  name: string;
+  email: string;
+}
 
 export interface AuthValue {
   user: AuthUser | null;

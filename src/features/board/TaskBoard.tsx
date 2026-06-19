@@ -12,7 +12,7 @@ const ALL_TASKS: Task[] = [
 
 export default function TaskBoard() {
   const [tasks] = useState<Task[]>(ALL_TASKS);
-  const [dark, setDark] = useState(false);   // unrelated UI state
+  const [dark, setDark] = useState(false); // unrelated UI state
 
   // useMemo: derive each column's list only when tasks change
   const todo = useMemo(() => tasks.filter((t) => t.status === 'todo'), [tasks]);
@@ -25,8 +25,30 @@ export default function TaskBoard() {
   }, []);
 
   return (
-    <div style={{ padding: '20px', borderRadius: '16px', background: dark ? '#0f172a' : 'transparent', transition: 'background 0.2s' }}>
-      <button onClick={() => setDark((d) => !d)} style={{ background: '#61dafb', color: '#0f172a', border: 'none', borderRadius: '8px', padding: '8px 14px', fontSize: '13px', fontWeight: 700, cursor: 'pointer', marginBottom: '12px' }}>Toggle theme</button>
+    <div
+      style={{
+        padding: '20px',
+        borderRadius: '16px',
+        background: dark ? '#0f172a' : 'transparent',
+        transition: 'background 0.2s',
+      }}
+    >
+      <button
+        onClick={() => setDark((d) => !d)}
+        style={{
+          background: '#61dafb',
+          color: '#0f172a',
+          border: 'none',
+          borderRadius: '8px',
+          padding: '8px 14px',
+          fontSize: '13px',
+          fontWeight: 700,
+          cursor: 'pointer',
+          marginBottom: '12px',
+        }}
+      >
+        Toggle theme
+      </button>
       <div style={{ display: 'flex', gap: '10px' }}>
         <BoardColumn title="To do" tasks={todo} onSelect={handleSelect} />
         <BoardColumn title="In progress" tasks={doing} onSelect={handleSelect} />

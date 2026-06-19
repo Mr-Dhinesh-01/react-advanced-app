@@ -3,10 +3,21 @@
 import { apiClient } from '@/shared/api/apiClient';
 import { createMockToken } from '@/shared/api/token';
 
-export interface AuthUser { id: number; name: string; email: string; }
-interface StoredUser extends AuthUser { password: string; role?: string; city?: string; }
+export interface AuthUser {
+  id: number;
+  name: string;
+  email: string;
+}
+interface StoredUser extends AuthUser {
+  password: string;
+  role?: string;
+  city?: string;
+}
 
-export interface LoginResult { user: AuthUser; token: string; }
+export interface LoginResult {
+  user: AuthUser;
+  token: string;
+}
 
 export async function login(email: string, password: string): Promise<LoginResult> {
   const res = await apiClient.get<StoredUser[]>('/users', { params: { email } });

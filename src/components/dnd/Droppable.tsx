@@ -2,7 +2,15 @@
 import { useDroppable } from '@dnd-kit/core';
 import type { ReactNode } from 'react';
 
-export function Droppable({ id, label, children }: { id: string; label: string; children: ReactNode }) {
+export function Droppable({
+  id,
+  label,
+  children,
+}: {
+  id: string;
+  label: string;
+  children: ReactNode;
+}) {
   const { setNodeRef, isOver } = useDroppable({ id });
 
   return (
@@ -17,7 +25,9 @@ export function Droppable({ id, label, children }: { id: string; label: string; 
         transition: 'background 0.15s, border-color 0.15s',
       }}
     >
-      <p style={{ margin: '0 0 10px', fontSize: '12px', fontWeight: 800, color: '#94a3b8' }}>{label}</p>
+      <p style={{ margin: '0 0 10px', fontSize: '12px', fontWeight: 800, color: '#94a3b8' }}>
+        {label}
+      </p>
       {children}
     </div>
   );

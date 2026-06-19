@@ -1,5 +1,9 @@
 // src/lib/token.ts — make and read a mock token
-export interface TokenPayload { sub: number; name: string; exp: number; }
+export interface TokenPayload {
+  sub: number;
+  name: string;
+  exp: number;
+}
 
 // build a base64 "header.payload.signature" (mock — server would sign it)
 export function createMockToken(sub: number, name: string, secondsValid: number): string {

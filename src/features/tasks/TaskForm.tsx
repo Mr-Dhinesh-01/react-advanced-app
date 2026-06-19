@@ -9,12 +9,12 @@ export function TaskForm({ onSubmit }: { onSubmit: (title: string) => void }) {
     e.preventDefault();
     const trimmed = title.trim();
     if (trimmed === '') {
-      setError('Title is required');   // block + show error
+      setError('Title is required'); // block + show error
       return;
     }
     setError(null);
-    onSubmit(trimmed);                 // notify parent with clean value
-    setTitle('');                      // clear the field
+    onSubmit(trimmed); // notify parent with clean value
+    setTitle(''); // clear the field
   }
 
   return (
@@ -26,7 +26,11 @@ export function TaskForm({ onSubmit }: { onSubmit: (title: string) => void }) {
         placeholder="New task"
         onChange={(e) => setTitle(e.target.value)}
       />
-      {error && <p role="alert" style={{ color: '#dc2626' }}>{error}</p>}
+      {error && (
+        <p role="alert" style={{ color: '#dc2626' }}>
+          {error}
+        </p>
+      )}
       <button type="submit">Add task</button>
     </form>
   );

@@ -4,7 +4,9 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 
 export type Filter = 'all' | 'todo' | 'done';
 
-interface UiState { filter: Filter; }
+interface UiState {
+  filter: Filter;
+}
 const initialState: UiState = { filter: 'all' };
 
 const uiSlice = createSlice({

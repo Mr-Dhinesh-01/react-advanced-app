@@ -13,7 +13,9 @@ export function TaskDashboard() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
       <SearchBar value={query} onChange={setQuery} />
-      {visible.map((t) => <TaskCard key={t.id} task={t} />)}
+      {visible.map((t) => (
+        <TaskCard key={t.id} task={t} />
+      ))}
       {visible.length === 0 && <p style={{ color: '#94a3b8' }}>No matching tasks.</p>}
     </div>
   );

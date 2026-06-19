@@ -9,9 +9,7 @@ const task: Task = { id: 1, title: 'Set up React project', status: 'done' };
 describe('TaskCard', () => {
   test('renders the title as a heading', () => {
     render(<TaskCard task={task} />);
-    expect(
-      screen.getByRole('heading', { name: 'Set up React project' })
-    ).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Set up React project' })).toBeInTheDocument();
   });
 
   test('shows the human-readable status', () => {

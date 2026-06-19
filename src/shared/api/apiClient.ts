@@ -4,8 +4,12 @@ import axios from 'axios';
 let accessToken: string | null = null;
 let onUnauthorized: (() => void) | null = null;
 
-export function setAccessToken(token: string | null) { accessToken = token; }
-export function setOnUnauthorized(fn: () => void) { onUnauthorized = fn; }
+export function setAccessToken(token: string | null) {
+  accessToken = token;
+}
+export function setOnUnauthorized(fn: () => void) {
+  onUnauthorized = fn;
+}
 
 // Read the API URL from an environment variable.
 // In production (Netlify/Vercel): VITE_API_URL is set to your hosted API.

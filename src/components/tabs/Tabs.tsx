@@ -6,7 +6,14 @@ import { TabsContext, useTabs } from './tabsContext';
 function Tabs({ defaultTab, children }: { defaultTab: string; children: ReactNode }) {
   const [activeId, setActiveId] = useState(defaultTab);
   return (
-    <div style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: '16px', overflow: 'hidden' }}>
+    <div
+      style={{
+        background: '#fff',
+        border: '1px solid #e2e8f0',
+        borderRadius: '16px',
+        overflow: 'hidden',
+      }}
+    >
       <TabsContext.Provider value={{ activeId, setActiveId }}>{children}</TabsContext.Provider>
     </div>
   );
@@ -20,12 +27,22 @@ function Tab({ id, children }: { id: string; children: ReactNode }) {
   const { activeId, setActiveId } = useTabs();
   const isActive = activeId === id;
   return (
-    <button onClick={() => setActiveId(id)} style={{
-      flex: 1, padding: '12px', fontSize: '14px', fontWeight: 700, cursor: 'pointer',
-      border: 'none', background: 'transparent',
-      color: isActive ? '#0f172a' : '#94a3b8',
-      borderBottom: isActive ? '2px solid #61dafb' : '2px solid transparent',
-    }}>{children}</button>
+    <button
+      onClick={() => setActiveId(id)}
+      style={{
+        flex: 1,
+        padding: '12px',
+        fontSize: '14px',
+        fontWeight: 700,
+        cursor: 'pointer',
+        border: 'none',
+        background: 'transparent',
+        color: isActive ? '#0f172a' : '#94a3b8',
+        borderBottom: isActive ? '2px solid #61dafb' : '2px solid transparent',
+      }}
+    >
+      {children}
+    </button>
   );
 }
 

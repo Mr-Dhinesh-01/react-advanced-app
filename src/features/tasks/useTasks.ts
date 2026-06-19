@@ -14,9 +14,14 @@ export function useTasks() {
     let cancelled = false;
     // cancelled guard avoids setting state after unmount
     fetchTasks().then((data) => {
-      if (!cancelled) { setTasks(data); setLoading(false); }
+      if (!cancelled) {
+        setTasks(data);
+        setLoading(false);
+      }
     });
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, []);
   return { tasks, loading };
 }

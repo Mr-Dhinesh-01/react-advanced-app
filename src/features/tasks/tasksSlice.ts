@@ -4,9 +4,11 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { getTasks, type Task } from './taskService';
 
 const NEXT: Record<Task['status'], Task['status']> = {
-  'todo': 'in-progress', 'in-progress': 'done', 'done': 'todo',
+  todo: 'in-progress',
+  'in-progress': 'done',
+  done: 'todo',
 };
-  
+
 interface TasksState {
   items: Task[];
   loading: boolean;
@@ -28,10 +30,12 @@ const tasksSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchTasks.pending, (state) => {
-        state.loading = true; state.error = null;
+        state.loading = true;
+        state.error = null;
       })
       .addCase(fetchTasks.fulfilled, (state, action) => {
-        state.loading = false; state.items = action.payload;
+        state.loading = false;
+        state.items = action.payload;
       })
       .addCase(fetchTasks.rejected, (state, action) => {
         state.loading = false;

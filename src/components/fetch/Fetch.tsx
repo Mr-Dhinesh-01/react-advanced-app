@@ -21,10 +21,17 @@ export function Fetch<T>({ url, children }: FetchProps<T>) {
   useEffect(() => {
     let cancelled = false;
     // the request is the external system; we only setState in its callbacks
-    axios.get<T>(url)
-      .then((res) => { if (!cancelled) setState({ data: res.data, loading: false, error: null }); })
-      .catch((err) => { if (!cancelled) setState({ data: null, loading: false, error: err.message ?? 'Failed' }); });
-    return () => { cancelled = true; };
+    axios
+      .get<T>(url)
+      .then((res) => {
+        if (!cancelled) setState({ data: res.data, loading: false, error: null });
+      })
+      .catch((err) => {
+        if (!cancelled) setState({ data: null, loading: false, error: err.message ?? 'Failed' });
+      });
+    return () => {
+      cancelled = true;
+    };
   }, [url]);
 
   // hand the whole lifecycle to the caller

@@ -20,8 +20,30 @@ export default function TasksPage() {
   }, []);
 
   return (
-    <div style={{ padding: '16px', borderRadius: '16px', background: dark ? '#0f172a' : 'transparent', transition: 'background 0.2s' }}>
-      <button onClick={() => setDark((d) => !d)} style={{ background: '#61dafb', color: '#0f172a', border: 'none', borderRadius: '8px', padding: '8px 14px', fontSize: '13px', fontWeight: 700, cursor: 'pointer', marginBottom: '12px' }}>Toggle theme</button>
+    <div
+      style={{
+        padding: '16px',
+        borderRadius: '16px',
+        background: dark ? '#0f172a' : 'transparent',
+        transition: 'background 0.2s',
+      }}
+    >
+      <button
+        onClick={() => setDark((d) => !d)}
+        style={{
+          background: '#61dafb',
+          color: '#0f172a',
+          border: 'none',
+          borderRadius: '8px',
+          padding: '8px 14px',
+          fontSize: '13px',
+          fontWeight: 700,
+          cursor: 'pointer',
+          marginBottom: '12px',
+        }}
+      >
+        Toggle theme
+      </button>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         {visible.map((t) => (
           <TaskRow key={t.id} task={t} onSelect={handleSelect} />

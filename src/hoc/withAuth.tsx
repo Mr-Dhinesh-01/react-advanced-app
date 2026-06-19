@@ -10,8 +10,18 @@ export function withAuth<P extends object>(Wrapped: ComponentType<P>) {
     // not signed in → show a prompt instead of the component
     if (!user) {
       return (
-        <div style={{ background: '#fef2f2', border: '1px solid #dc2626', borderRadius: '16px', padding: '20px', textAlign: 'center' }}>
-          <p style={{ margin: 0, fontSize: '14px', fontWeight: 700, color: '#991b1b' }}>Please sign in to view this.</p>
+        <div
+          style={{
+            background: '#fef2f2',
+            border: '1px solid #dc2626',
+            borderRadius: '16px',
+            padding: '20px',
+            textAlign: 'center',
+          }}
+        >
+          <p style={{ margin: 0, fontSize: '14px', fontWeight: 700, color: '#991b1b' }}>
+            Please sign in to view this.
+          </p>
         </div>
       );
     }

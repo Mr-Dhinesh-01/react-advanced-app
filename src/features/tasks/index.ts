@@ -6,4 +6,4 @@ export { SearchBar } from './SearchBar';
 export { useTasks } from './useTasks';
 export { useTaskFilters } from './useTaskFilters';
 export type { Task } from './TaskCard';
-// taskService.ts stays internal — not re-exported  
+// taskService.ts stays internal — not re-exported

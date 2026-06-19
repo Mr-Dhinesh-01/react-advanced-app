@@ -21,8 +21,12 @@ async function restoreSession(): Promise<AuthUser | null> {
 // tiny in-memory session marker (swap for a cookie/refresh flow in prod)
 const sessionStore = {
   _id: null as number | null,
-  set(id: number | null) { this._id = id; },
-  get() { return this._id; },
+  set(id: number | null) {
+    this._id = id;
+  },
+  get() {
+    return this._id;
+  },
 };
 
 export default function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -38,11 +42,13 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
   }, []);
 
   async function login(email: string, password: string) {
-    const res = await axios.get<(AuthUser & { password: string })[]>(`${API}/users`, { params: { email } });
+    const res = await axios.get<(AuthUser & { password: string })[]>(`${API}/users`, {
+      params: { email },
+    });
     const u = res.data[0];
     if (!u || u.password !== password) throw new Error('Invalid email or password.');
     const safe = { id: u.id, name: u.name, email: u.email };
-    sessionStore.set(u.id);   // remember for re-hydration
+    sessionStore.set(u.id); // remember for re-hydration
     setUser(safe);
   }
 
@@ -52,8 +58,6 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
   }
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, ready }}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={{ user, login, logout, ready }}>{children}</AuthContext.Provider>
   );
 }

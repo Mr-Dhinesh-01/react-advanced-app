@@ -7,7 +7,12 @@ import { useState } from 'react';
 function DoneButton({ onDone }: { onDone: () => void }) {
   const [done, setDone] = useState(false);
   return (
-    <button onClick={() => { setDone(true); onDone(); }}>
+    <button
+      onClick={() => {
+        setDone(true);
+        onDone();
+      }}
+    >
       {done ? 'Done' : 'Mark done'}
     </button>
   );

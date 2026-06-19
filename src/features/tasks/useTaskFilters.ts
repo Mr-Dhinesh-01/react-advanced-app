@@ -6,7 +6,7 @@ export function useTaskFilters(tasks: Task[]) {
   const [query, setQuery] = useState('');
   const visible = useMemo(
     () => tasks.filter((t) => t.title.toLowerCase().includes(query.toLowerCase())),
-    [tasks, query]
+    [tasks, query],
   );
   return { query, setQuery, visible };
 }
