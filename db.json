@@ -1,12 +1,12 @@
 {
-  "tasks": [
-    { "id": 1, "title": "Set up React project", "status": "done", "priority": "high" },
-    { "id": 2, "title": "Build Task List component", "status": "in-progress", "priority": "high" },
-    { "id": 3, "title": "Add form validation", "status": "todo", "priority": "medium" },
-    { "id": 4, "title": "Style with CSS modules", "status": "todo", "priority": "low" }
-  ],
   "users": [
-    { "id": 1, "name": "Sarah Johnson", "role": "Frontend Developer" },
-    { "id": 2, "name": "James Carter", "role": "Backend Developer" }
+    { "id": 1, "name": "Sarah Johnson", "email": "sarah.johnson@company.com", "password": "demo1234", "role": "Frontend", "city": "London" },
+    { "id": 2, "name": "James Carter", "email": "james.carter@company.com", "password": "demo1234", "role": "Backend", "city": "Manchester" }
+  ],
+  "tasks": [
+    { "id": 1, "title": "Set up React project", "status": "done", "priority": "high", "userId": 1 },
+    { "id": 2, "title": "Build Task List component", "status": "in-progress", "priority": "high", "userId": 1 },
+    { "id": 3, "title": "Add form validation", "status": "todo", "priority": "medium", "userId": 2 },
+    { "id": 4, "title": "Style with CSS modules", "status": "todo", "priority": "low", "userId": 1 }
   ]
 }
